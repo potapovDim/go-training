@@ -2,17 +2,24 @@ package main
 
 import "fmt"
 
-func someRun(str string, num1 int, num2 int) int {
-	var result int
+type RequestData struct {
+	url       string
+	browser   string
+	sessionId string
+	id        int
+}
 
-	if str == "test" {
-		result = num1 + num2
-	} else if str == "tes1" {
-		result = num1 - num2
-	}
-	return result
+var queueRequest []int
+
+func initNewRequestData(browser, url, sessionId string) RequestData {
+	var req RequestData
+	req.browser = browser
+	req.url = url
+	req.sessionId = sessionId
+	req.id = len(queueRequest) + 1
+	return req
 }
 
 func main() {
-	fmt.Println(someRun("test", 2, 4))
+	fmt.Println("test")
 }
