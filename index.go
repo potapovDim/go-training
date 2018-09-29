@@ -9,7 +9,7 @@ type RequestData struct {
 	id        int
 }
 
-var queueRequest []RequestData
+var queueRequest [20]RequestData
 
 func initNewRequestData(browser, url, sessionId string) RequestData {
 	var req RequestData
@@ -24,5 +24,5 @@ func main() {
 
 	var aaa = initNewRequestData("chrome", "localhost:5455/", "session some new")
 	queueRequest[1] = aaa
-	fmt.Println("test", aaa, queueRequest)
+	fmt.Println(aaa, queueRequest)
 }
